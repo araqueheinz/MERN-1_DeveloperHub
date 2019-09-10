@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* =================================
 API USERS PAGE C/R/U/D
 ==================================== */
@@ -89,10 +90,10 @@ router.post('/', [
       },
     );
 
-    return res.send('User Registered');
+    res.send('User Registered');
   } catch (error) {
     console.error(error.message);
-    return res.status(500).send('Server error');
+    res.status(500).send('Server error');
   }
 });
 
