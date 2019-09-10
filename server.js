@@ -1,4 +1,6 @@
-// SERVER.JS FILE
+/* =================================
+SERVER.JS FILE
+==================================== */
 
 // Require express library
 const express = require('express');
