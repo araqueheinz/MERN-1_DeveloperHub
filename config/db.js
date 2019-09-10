@@ -11,9 +11,11 @@ const db = config.get('mongoURI');
 const connectDB = async () => {
   // We need a way to show if we failed, so we we used a try catch
   try {
-    // DeprecationWarning: pass option { useNewUrlParser: true } to MongoClient.connect
     await mongoose.connect(db, {
+      // DeprecationWarning: pass option { useNewUrlParser: true } to MongoClient.connect
       useNewUrlParser: true,
+      // DeprecationWarning: Use createIndexes instead
+      useCreateIndex: true,
     });
     console.log('Mongo DB connected');
   } catch (error) {
