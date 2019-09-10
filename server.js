@@ -13,6 +13,11 @@ const app = express();
 // Connect to our database
 connectDB();
 
+// BodyParser is now included in the express library
+app.use(express.json({
+  extended: false,
+}));
+
 app.get('/', (req, res) => {
   res.send('Api Running');
 });
