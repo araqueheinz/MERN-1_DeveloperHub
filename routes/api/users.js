@@ -14,11 +14,18 @@ const gravatar = require('gravatar');
 // Require bcrypt library
 const bcrypt = require('bcryptjs');
 
+// Require jsonwebtoken library
+const jwt = require('jsonwebtoken');
+
+// Require config library
+const config = require('config');
+
 // Use the check & validationResult functions from the express-validator library
 const { check, validationResult } = require('express-validator/check');
 
 // Require our USER model
 const User = require('../../models/User');
+
 
 // CREATE / POST api/users
 router.post('/', [
@@ -66,6 +73,22 @@ router.post('/', [
     await user.save();
 
     // Return jsonwebtoken
+    const payload = {
+      user: {
+        id: user.id,
+      },
+    };
+
+    jwt.sign(
+      payload,
+      config.get('jwtSecret'),
+      { expiresIn: 360000 },
+      (err, token) => {
+        if (err) throw err;
+        res.json({ token });
+      },
+    );
+
     return res.send('User Registered');
   } catch (error) {
     console.error(error.message);

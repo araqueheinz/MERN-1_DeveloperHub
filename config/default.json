@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://heinz123:heinz1990@developerhub-w5mrn.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://heinz123:heinz1990@developerhub-w5mrn.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "snjankadnjksndjsnakdjnMySecretToken"
 }
