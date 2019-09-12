@@ -10,7 +10,7 @@ const express = require('express');
 const router = express.Router();
 
 // Use the check & validationResult functions from the express-validator library
-const { check, validationResult } = require('express-validator/check');
+const { check, validationResult } = require('express-validator');
 
 // Require jsonwebtoken library
 const jwt = require('jsonwebtoken');

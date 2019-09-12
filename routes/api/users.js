@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 /* =================================
 API USERS PAGE C/R/U/D
 ==================================== */
@@ -22,7 +21,7 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 
 // Use the check & validationResult functions from the express-validator library
-const { check, validationResult } = require('express-validator/check');
+const { check, validationResult } = require('express-validator');
 
 // Require our USER model
 const User = require('../../models/User');
@@ -36,6 +35,7 @@ router.post('/', [
   check('password', 'Please enter a password with 6 or more characters').isLength({ min: 6 }),
 ], async (req, res) => {
   const errors = validationResult(req);
+
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
@@ -84,16 +84,16 @@ router.post('/', [
       payload,
       config.get('jwtSecret'),
       { expiresIn: 360000 },
-      (err, token) => {
-        if (err) throw err;
-        res.json({ token });
+      (error, token) => {
+        if (error) {
+          return error;
+        }
+        return res.json({ token });
       },
     );
-
-    res.send('User Registered');
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server error');
+    return res.status(500).send('Server error');
   }
 });
 
