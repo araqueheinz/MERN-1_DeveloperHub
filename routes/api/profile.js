@@ -130,4 +130,32 @@ router.get('/me', auth, async (req, res) => {
   }
 });
 
+// READ ONE PROFILE BY USER ID / GET api/profile
+router.get('/user/:id', async (req, res) => {
+  try {
+    const profile = await Profile.findOne({ user: req.params.id }).populate('user', ['name', 'avatar']);
+    if (!profile) {
+      return res.status(400).json({ msg: 'No profile exists for this user' });
+    }
+    return res.json(profile);
+  } catch (error) {
+    console.error(error.message);
+    if (error.kind === 'ObjectId') {
+      return res.status(400).json({ msg: 'No profile exists for this user' });
+    }
+    return res.status(500).send('Server Mistake');
+  }
+});
+
+// READ ALL / GET api/profile
+router.get('/', async (req, res) => {
+  try {
+    const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+    return res.json(profiles);
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).send('Server Mistake');
+  }
+});
+
 module.exports = router;
