@@ -171,6 +171,7 @@ router.get('/', async (req, res) => {
           UPDATE C/R/U/D
 ==================================== */
 
+// UPDATE / ADD ONE EXPERIENCE / PUT api/profile/experience
 router.put('/experience', [auth,
   [
     check('title', 'Title field is required').not().isEmpty(),
@@ -217,6 +218,54 @@ router.put('/experience', [auth,
   }
 });
 
+// UPDATE / ADD ONE EDUCATION / PUT api/profile/education
+router.put('/education', [auth,
+  [
+    check('school', 'School field is required').not().isEmpty(),
+    check('degree', 'Degree field is required').not().isEmpty(),
+    check('fieldofstudy', 'Field of study is required').not().isEmpty(),
+    check('from', 'From date field is required').not().isEmpty(),
+  ]], async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  const {
+    school,
+    degree,
+    fieldofstudy,
+    from,
+    to,
+    current,
+    description,
+  } = req.body;
+
+  // Build a new Education object
+  const newEdu = {
+    school,
+    degree,
+    fieldofstudy,
+    from,
+    to,
+    current,
+    description,
+  };
+
+  try {
+    const profile = await Profile.findOne({ user: req.user.id });
+
+    profile.education.unshift(newEdu);
+
+    await profile.save();
+
+    return res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    return res.status(500).send('Server Error');
+  }
+});
+
 /* =================================
           DELETE C/R/U/D
 ==================================== */
@@ -235,7 +284,7 @@ router.delete('/', auth, async (req, res) => {
   }
 });
 
-// DELETE ONE EXPERIENCE / DELETE api/profile
+// DELETE ONE EXPERIENCE / DELETE api/profile/experience/:id
 router.delete('/experience/:id', auth, async (req, res) => {
   try {
     // Get the profile by userId
@@ -246,6 +295,28 @@ router.delete('/experience/:id', auth, async (req, res) => {
 
     // Updating the profile experiences with the new updatedExperience
     profile.experience = updatedExperience;
+
+    // Save to database
+    await profile.save();
+
+    return res.json(profile);
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).send('Server Error');
+  }
+});
+
+// DELETE ONE EDUCATION / DELETE api/profile/education/:id
+router.delete('/education/:id', auth, async (req, res) => {
+  try {
+    // Get the profile by userId
+    const profile = await Profile.findOne({ user: req.user.id });
+
+    // New array without the deleted education
+    const updatedEducation = profile.education.filter((element) => element.id !== req.params.id);
+
+    // Updating the profile educations with the new updatedEducation
+    profile.education = updatedEducation;
 
     // Save to database
     await profile.save();
