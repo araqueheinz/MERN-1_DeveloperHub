@@ -20,6 +20,11 @@ const Profile = require('../../models/Profile');
 // Require our User model
 const User = require('../../models/User');
 
+
+/* =================================
+          CREATE C/R/U/D
+==================================== */
+
 // CREATE / POST api/profile/
 router.post('/', [auth, [
   check('status', 'Status field is required').not().isEmpty(),
@@ -116,6 +121,10 @@ router.post('/', [auth, [
   }
 });
 
+/* =================================
+          READ C/R/U/D
+==================================== */
+
 // READ / GET api/profile/me
 router.get('/me', auth, async (req, res) => {
   try {
@@ -126,7 +135,7 @@ router.get('/me', auth, async (req, res) => {
     return res.json(profile);
   } catch (error) {
     console.error(error.message);
-    return res.status(500).send('Server Mistake');
+    return res.status(500).send('Server Error');
   }
 });
 
@@ -143,7 +152,7 @@ router.get('/user/:id', async (req, res) => {
     if (error.kind === 'ObjectId') {
       return res.status(400).json({ msg: 'No profile exists for this user' });
     }
-    return res.status(500).send('Server Mistake');
+    return res.status(500).send('Server Error');
   }
 });
 
@@ -154,8 +163,77 @@ router.get('/', async (req, res) => {
     return res.json(profiles);
   } catch (error) {
     console.error(error.message);
-    return res.status(500).send('Server Mistake');
+    return res.status(500).send('Server Error');
   }
 });
+
+/* =================================
+          UPDATE C/R/U/D
+==================================== */
+
+router.put('/experience', [auth,
+  [
+    check('title', 'Title field is required').not().isEmpty(),
+    check('company', 'Company field is required').not().isEmpty(),
+    check('from', 'From date field is required').not().isEmpty(),
+  ]], async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  const {
+    title,
+    company,
+    location,
+    from,
+    to,
+    current,
+    description,
+  } = req.body;
+
+  // Build a new Experience object
+  const newExp = {
+    title,
+    company,
+    location,
+    from,
+    to,
+    current,
+    description,
+  };
+
+  try {
+    const profile = await Profile.findOne({ user: req.user.id });
+
+    profile.experience.unshift(newExp);
+
+    await profile.save();
+
+    return res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    return res.status(500).send('Server Error');
+  }
+});
+
+/* =================================
+          DELETE C/R/U/D
+==================================== */
+
+// DELETE ONE PROFILE & USER / DELETE api/profile
+router.delete('/', auth, async (req, res) => {
+  try {
+    // Deleting profile
+    await Profile.findOneAndRemove({ user: req.user.id });
+    // Deleting User
+    await User.findOneAndRemove({ _id: req.user.id });
+    return res.json({ msg: 'Profile and User has been deleted' });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).send('Server Error');
+  }
+});
+
 
 module.exports = router;
