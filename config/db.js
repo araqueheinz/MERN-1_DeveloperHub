@@ -16,6 +16,9 @@ const connectDB = async () => {
       useNewUrlParser: true,
       // DeprecationWarning: Use createIndexes instead
       useCreateIndex: true,
+      // DeprecationWarning: Mongoose: `findOneAndUpdate()`
+      // and `findOneAndDelete()` without the `useFindAndModify` option set to false are deprecated
+      useFindAndModify: false,
     });
     console.log('Mongo DB connected');
   } catch (error) {
