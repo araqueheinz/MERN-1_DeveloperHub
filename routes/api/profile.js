@@ -235,5 +235,27 @@ router.delete('/', auth, async (req, res) => {
   }
 });
 
+// DELETE ONE EXPERIENCE / DELETE api/profile
+router.delete('/experience/:id', auth, async (req, res) => {
+  try {
+    // Get the profile by userId
+    const profile = await Profile.findOne({ user: req.user.id });
+
+    // New array without the deleted experience
+    const updatedExperience = profile.experience.filter((element) => element.id !== req.params.id);
+
+    // Updating the profile experiences with the new updatedExperience
+    profile.experience = updatedExperience;
+
+    // Save to database
+    await profile.save();
+
+    return res.json(profile);
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).send('Server Error');
+  }
+});
+
 
 module.exports = router;
