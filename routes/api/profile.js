@@ -8,6 +8,12 @@ const express = require('express');
 // Use the router function in the express library
 const router = express.Router();
 
+// Require request package to make the process of requesting info from github a little bit easier
+const request = require('request');
+
+// Require config library
+const config = require('config');
+
 // Require our validation functions from the express library
 const { check, validationResult } = require('express-validator');
 
@@ -328,5 +334,35 @@ router.delete('/education/:id', auth, async (req, res) => {
   }
 });
 
+/* =================================
+          GITHUB GET REQUEST
+==================================== */
+
+// READ / GET GITHUB PROFILE
+router.get('/github/:username', async (req, res) => {
+  try {
+    const options = {
+      uri: `https://api.github.com/users/${req.params.username}/repos?per_page=6&
+      sort=created:asc&
+      client_id=${config.get('githubClientId')}&
+      client_secret=${config.get('githubClientSecret')}`,
+      method: 'GET',
+      headers: { 'user-agent': 'node.js' },
+    };
+
+    return await request(options, (error, response, body) => {
+      if (error) {
+        return console.error(error);
+      }
+      if (response.statusCode !== 200) {
+        return res.status(404).json({ msg: 'Github profile, not found!' });
+      }
+      return res.json(JSON.parse(body));
+    });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).send('Server Error');
+  }
+});
 
 module.exports = router;

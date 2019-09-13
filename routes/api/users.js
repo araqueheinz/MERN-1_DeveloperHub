@@ -80,7 +80,7 @@ router.post('/', [
       },
     };
 
-    jwt.sign(
+    return jwt.sign(
       payload,
       config.get('jwtSecret'),
       { expiresIn: 360000 },
