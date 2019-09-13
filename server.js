@@ -1,4 +1,6 @@
-// SERVER.JS FILE
+/* =================================
+SERVER.JS FILE
+==================================== */
 
 // Require express library
 const express = require('express');
@@ -10,6 +12,11 @@ const app = express();
 
 // Connect to our database
 connectDB();
+
+// BodyParser is now included in the express library
+app.use(express.json({
+  extended: false,
+}));
 
 app.get('/', (req, res) => {
   res.send('Api Running');
