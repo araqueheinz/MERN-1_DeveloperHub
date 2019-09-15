@@ -9,7 +9,7 @@ For this project I will build a social media application for developers using **
 - [X] User SignUp
 - [X] Validation (Bcyrpt Password/Hashing)
 - [X] Protect Routes with middleware and JWT.
-- [ ] C.R.U.D (API).
+- [X] C.R.U.D (API).
 - [ ] Create React App an integrated with back-end (API).
 - [ ] Create store with Redux.
 
