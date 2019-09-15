@@ -121,8 +121,8 @@ router.post('/', [auth, [
     // save it to the database
     await profile.save();
     return res.json(profile);
-  } catch (err) {
-    console.error(err.message);
+  } catch (error) {
+    console.error(error.message);
     return res.status(500).send('Server Error');
   }
 });
@@ -218,8 +218,8 @@ router.put('/experience', [auth,
     await profile.save();
 
     return res.json(profile);
-  } catch (err) {
-    console.error(err.message);
+  } catch (error) {
+    console.error(error.message);
     return res.status(500).send('Server Error');
   }
 });
@@ -266,8 +266,8 @@ router.put('/education', [auth,
     await profile.save();
 
     return res.json(profile);
-  } catch (err) {
-    console.error(err.message);
+  } catch (error) {
+    console.error(error.message);
     return res.status(500).send('Server Error');
   }
 });
