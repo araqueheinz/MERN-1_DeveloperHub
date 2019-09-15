@@ -4,12 +4,12 @@
 For this project I will build a social media application for developers using **NODE.JS.js** & **EXPRESS** for the Back-end, **REACT** for the Front-end, **REDUX** for state management, and **MongoDB** as my database.
 
 ### Tasks
-- [ ] Build an API (Node.js and Express).
-- [ ] Setup Database (mongoDB).
-- [ ] User SignUp
-- [ ] Validation (Bcyrpt Password/Hashing)
-- [ ] Protect Routes with middleware and JWT.
-- [ ] C.R.U.D (API).
+- [X] Build an API (Node.js and Express).
+- [X] Setup Database (mongoDB).
+- [X] User SignUp
+- [X] Validation (Bcyrpt Password/Hashing)
+- [X] Protect Routes with middleware and JWT.
+- [X] C.R.U.D (API).
 - [ ] Create React App an integrated with back-end (API).
 - [ ] Create store with Redux.
 
