@@ -1,19 +1,7 @@
-# Social Media App - Developer Hub
-
-## Summary
-For this project I will build a social media application for developers using **NODE.JS.js** & **EXPRESS** for the Back-end, **REACT** for the Front-end, **REDUX** for state management, and **MongoDB** as my database.
-
-### Tasks
-- [X] Build an API (Node.js and Express).
-- [X] Setup Database (mongoDB).
-- [X] User SignUp
-- [X] Validation (Bcyrpt Password/Hashing)
-- [X] Protect Routes with middleware and JWT.
-- [X] C.R.U.D (API).
-- [ ] Create React App an integrated with back-end (API).
-- [ ] Create store with Redux.
+# Express, Scripts & all Dependencies.
 
 ### Dependencies (npm i)
+
 - **express**: is a layer built on the top of the Node.js that helps manage a server and routes.
 - **express-validator**: is an Express middleware library that you can incorporate in your apps for server-side data validation.
 - **bcryptjs**: allows us to build a password security platform that scales with computation power and always hashes every password with a salt.
@@ -30,3 +18,19 @@ For this project I will build a social media application for developers using **
 - **eslint-config-airbnb-base**: This package provides Airbnb's base JS .eslintrc as an extensible shared config.Our default export contains all of our ESLint rules, including ECMAScript 6+. It requires `eslint` and `eslint-plugin-import`.
 - **eslint-plugin-import**: eslint-plugin-import is a peer dependency for eslint-config-airbnb-base.
 
+### Usage:
+- **eslint, eslint-config-airbnb-base, eslint-plugin-import**: create a `.eslintrc.js` with the following contents: 
+```
+module.exports = { "extends": "airbnb-base", }
+```
+and a `.eslintignore`:
+```
+node_modules
+.env
+```
+
+### Scripts
+```
+"start": "node server",
+"api":  "nodemon server"
+```
