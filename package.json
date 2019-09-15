@@ -1,0 +1,41 @@
+{
+  "name": "developerhub",
+  "version": "1.0.0",
+  "description": "## Summary For this project I will build a social media application for developers using **NODE.JS.js** & **EXPRESS** for the Back-end, **REACT** for the Front-end, **REDUX** for state management, and **MongoDB** as my database.",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node server",
+    "api":  "nodemon server"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/araqueheinz/MERN-1_DeveloperHub.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/araqueheinz/MERN-1_DeveloperHub/issues"
+  },
+  "homepage": "https://github.com/araqueheinz/MERN-1_DeveloperHub#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.2.2",
+    "express": "^4.17.1",
+    "express-validator": "^6.2.0",
+    "gravatar": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.6.13",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.2",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "nodemon": "^1.19.2"
+  }
+}
