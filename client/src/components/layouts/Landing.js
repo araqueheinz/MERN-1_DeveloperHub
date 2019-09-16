@@ -1,6 +1,9 @@
 // Import React library
 import React from 'react';
 
+// Import the link component from the react-router-dom
+import { Link } from 'react-router-dom';
+
 const Landing = () => {
   return (
     <section className="landing">
@@ -12,8 +15,8 @@ const Landing = () => {
             other developers
           </p>
           <div className="buttons">
-            <a className="btn btn-primary">Sign Up</a>
-            <a className="btn btn-light">Login</a>
+            <Link to='/register' className="btn btn-primary">Sign Up</Link>
+            <Link to='/login' className="btn btn-light">Login</Link>
           </div>
       </div>
     </div>

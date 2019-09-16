@@ -1,16 +1,21 @@
 // Import React library
 import React from 'react';
 
+// Import the link component from the react-router-dom
+import { Link } from 'react-router-dom';
+
 const Navbar = () => {
   return (
-    <nav className="navbar">
+    <nav className="navbar bg-dark">
       <h1>
-        <a><i className="fas fa-code"></i>Developer's Hub</a>
+       <Link to='/'>
+        <i className="fas fa-code"></i>Developer's Hub
+       </Link>
       </h1>
       <ul>
-        <li><a>Developers</a></li>
-        <li><a>Create Account</a></li>
-        <li><a>Login</a></li>
+        <li><Link to=''>Developers</Link></li>
+        <li><Link to='/register'>Create Account</Link></li>
+        <li><Link to='/login'>Login</Link></li>
       </ul>
     </nav>
   )
