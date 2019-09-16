@@ -18,16 +18,30 @@ const Register = () => {
   const { name, email, password, password2 } = formData;
 
   const onChange = (event) => {
-    console.log(event.target.name,': ', event.target.value )
     setFormData({ ...formData, [event.target.name]: event.target.value });
   }
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
     if (password !== password2) {
       console.log('Passwords do not match', 'danger');
     } else {
-      console.log({ formData });
+      const newUser = {
+        name, 
+        email,
+        password,
+      };
+      
+      /* 
+        In a try / catch block, importing axios at the top
+        No need for the http://localhost:4000, because we set a proxy in our package.json
+        try
+          const res = await axios.post('/api/users', newUser, { headers: { 'Content-type': 'application/json' }});
+          console.log(res.data);
+          It worked
+        catch
+      */
+     console.log('It worked')
     }
   }
 
@@ -38,15 +52,13 @@ const Register = () => {
 
       <form className="form" onSubmit={(event) => { onSubmit(event) }}>
         <div className="form-group">
-        <input type="text" placeholder="Name" name="name" value={name} onChange={(event) => { onChange(event) }} required />
+          <input type="text" placeholder="Name" name="name" value={name} onChange={(event) => { onChange(event) }} required />
         </div>
 
         <div className="form-group">
-        <input type="email" placeholder="Email Address" name="email" value={email} onChange={(event) => { onChange(event) }} required />
-        <small className="form-text"> This site uses Gravatar so if you want a profile image, use a
-        Gravatar email</small>
-
+          <input type="email" placeholder="Email Address" name="email" value={email} onChange={(event) => { onChange(event) }} required />
         </div>
+
         <div className="form-group">
           <input type="password" placeholder="Password" name="password" minLength="6" value={password} onChange={(event) => { onChange(event) }} required />
         </div>
@@ -59,7 +71,7 @@ const Register = () => {
       </form>
 
       <p className="my-1">
-        Already have an account? <Link to='/login'>Sign In</Link>
+        Already have an account? <Link to='/login'>Log In</Link>
       </p>
     </Fragment>
   )
