@@ -16,23 +16,37 @@ import Landing from './components/layouts/Landing';
 // Import our Register component
 import Register from './components/auth/Register';
 
+// Import our Alert component
+import Alert from './components/layouts/Alert';
+
 // Import our Login component
 import Login from './components/auth/Login';
 
+// REDUX //
+
+// Import provider component from react-redux library
+import { Provider } from 'react-redux';
+
+// Import our redux store
+import store from './store';
+
 const App = () => {
   return (
-    <BrowserRouter>
-      <Fragment>
-        <Navbar />
-        <Route exact path="/" component={Landing}/>
-        <section className='container'>
-          <Switch>
-            <Route exact path='/register' component={Register} />
-            <Route exact path='/login' component={Login} />
-          </Switch>
-        </section>
-      </Fragment>
-    </BrowserRouter>
+    <Provider store={store}> 
+      <BrowserRouter>
+        <Fragment>
+          <Navbar />
+          <Route exact path="/" component={Landing}/>
+          <section className='container'>
+            <Alert />
+            <Switch>
+              <Route exact path='/register' component={Register} />
+              <Route exact path='/login' component={Login} />
+            </Switch>
+          </section>
+        </Fragment>
+      </BrowserRouter> 
+    </Provider>
   );
 }
 

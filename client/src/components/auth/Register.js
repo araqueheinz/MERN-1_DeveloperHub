@@ -7,7 +7,17 @@ import { useState } from 'react';
 // Import the link component from the react-router-dom
 import { Link } from 'react-router-dom';
 
-const Register = () => {
+// Import the connect function from react-redux library
+import { connect } from 'react-redux';
+
+// Import our action creators
+import { setAlert } from '../../actions/alert';
+
+// Import PropTypes from prop-types library
+import PropTypes from 'prop-types'
+
+
+const Register = ({ setAlert }) => {
   const[formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,23 +34,10 @@ const Register = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     if (password !== password2) {
-      console.log('Passwords do not match', 'danger');
+      setAlert('Passwords do not match', 'danger');
+
     } else {
-      const newUser = {
-        name, 
-        email,
-        password,
-      };
-      
-      /* 
-        In a try / catch block, importing axios at the top
-        No need for the http://localhost:4000, because we set a proxy in our package.json
-        try
-          const res = await axios.post('/api/users', newUser, { headers: { 'Content-type': 'application/json' }});
-          console.log(res.data);
-          It worked
-        catch
-      */
+     
      console.log('It worked')
     }
   }
@@ -77,4 +74,10 @@ const Register = () => {
   )
 }
 
-export default Register;
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+}
+
+export default connect(null, {
+  setAlert: setAlert
+})(Register);

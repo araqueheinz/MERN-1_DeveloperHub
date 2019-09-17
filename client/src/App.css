@@ -50,7 +50,7 @@ ul {
 }
 
 /*  ///////////////////////////////////////////////
-   //   * BUTTONS & BACKGROUND CONTROLS *       //
+   // *BUTTONS, ALERTS, & BACKGROUND CONTROLS*  //
   /////////////////////////////////////////////// */
 
 .btn {
@@ -64,6 +64,22 @@ ul {
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+}
+
+.alert {
+  padding: 0.8rem;
+  margin: 1rem 0;
+  opacity: 0.9;
+  background: var(--light-color);
+  color: #333;
+}
+
+.btn-danger,
+.bg-danger,
+.badge-danger,
+.alert-danger {
+  background: var(--danger-color);
+  color: #fff;
 }
 
 .btn-primary,
@@ -89,6 +105,8 @@ ul {
   background: var(--dark-color);
   color: #fff;
 }
+
+
 
 /*  ///////////////////////////////////////////////
    //          * REUSABLE CONTROLS *            //

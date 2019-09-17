@@ -53,10 +53,10 @@ For this project I will build a social media application for developers using **
 - **redux-devtools-extension**: is for debugging application's state changes. The extension provides power-ups for your Redux development workflow.
 - **moment**: is a free and open source JavaScript library that removes the need to use the native JavaScript Date object directly
 - **react-moment**: if you're using moment and react together, this library helps you bind them together.
+- **uuid**: Universally unique identifier (UUID) is an identifier standard used in software construction. is a 128-bit number used to uniquely identify some object or entity on the Internet.
 
 ### Links & Tools
 - Font Awesome: `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE="crossorigin="anonymous" />`
-
 - Semantic UI: https://semantic-ui.com/ is a modern front-end development framework, powered by LESS and jQuery. It has a sleek, subtle, and flat design look that provides a lightweight user experience.
 
 
