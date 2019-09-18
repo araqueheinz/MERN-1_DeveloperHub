@@ -1,5 +1,5 @@
 // Import React library and the Fragment component
-import React, { Fragment } from 'react';
+import React from 'react';
 
 // Import the connect function from react-redux library
 import { connect } from 'react-redux';
