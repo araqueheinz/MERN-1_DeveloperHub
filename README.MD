@@ -1,7 +1,8 @@
 # Social Media App - Developer Hub
 
 ## Summary
-For this project I will build a social media application for developers using **NODE.JS.js** & **EXPRESS** for the Back-end, **REACT** for the Front-end, **REDUX** for state management, and **MongoDB** as my database.
+For this project I will build a social media application for developers where you can create a developer profile, share posts and get help from
+other developers, using **NODE.JS.js** & **EXPRESS** for the Back-end, **REACT** for the Front-end, **REDUX** for state management, and **MongoDB** as my database.
 
 ### Tasks
 - [X] Build an API (Node.js and Express).

@@ -10,14 +10,17 @@ import { Link } from 'react-router-dom';
 // Import the connect function from react-redux library
 import { connect } from 'react-redux';
 
-// Import our action creators
+// Import our action creator
 import { setAlert } from '../../actions/alert';
+
+// Import our register action creator
+import { register } from '../../actions/auth';
 
 // Import PropTypes from prop-types library
 import PropTypes from 'prop-types'
 
 
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register }) => {
   const[formData, setFormData] = useState({
     name: '',
     email: '',
@@ -38,7 +41,7 @@ const Register = ({ setAlert }) => {
 
     } else {
      
-     console.log('It worked')
+     register({ name, email, password });
     }
   }
 
@@ -76,8 +79,10 @@ const Register = ({ setAlert }) => {
 
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
 }
 
 export default connect(null, {
-  setAlert: setAlert
+  setAlert: setAlert,
+  register: register,
 })(Register);
