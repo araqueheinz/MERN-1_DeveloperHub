@@ -32,6 +32,8 @@ app.use('/api/profile', require('./routes/api/profile'));
 // Define and require my USERS route.
 app.use('/api/users', require('./routes/api/users'));
 
+
+// HEROKU CONFIGURATION FOR DEPLOYMENT.
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
