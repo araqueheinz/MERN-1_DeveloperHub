@@ -25,6 +25,12 @@ import Alert from './components/layouts/Alert';
 // Import our Login component
 import Login from './components/auth/Login';
 
+// Import our Dashboard component
+import Dashboard from './components/dashboard/Dashboard';
+
+// Import our PrivateRouting component
+import PrivateRouting from './components/routing/PrivateRouting';
+
 // Import our setAuthToken utils
 import setAuthToken from './utils/setAuthToken';
 
@@ -62,6 +68,7 @@ const App = () => {
             <Switch>
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
+              <PrivateRouting exact path='/dashboard' component={Dashboard} />
             </Switch>
           </section>
         </Fragment>
