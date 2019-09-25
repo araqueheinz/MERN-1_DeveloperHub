@@ -25,9 +25,6 @@ export default (state = {
     case USER_LOADED:
       return { ...state, isAuthenticated: true, loading: false, user: payload, }  
     
-    
-
-
     default: 
       return state;  
   }

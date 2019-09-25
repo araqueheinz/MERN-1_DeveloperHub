@@ -5,10 +5,13 @@ import React, { Fragment } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 // Import useEffect from React library HOOKS!
-import {  useEffect } from 'react';
+import { useEffect } from 'react';
 
 // Import our css styles to our app
 import './App.css';
+
+// Import our media queries css styles to our app
+import './Queries.css';
 
 // Import our Navbar component
 import Navbar from './components/layouts/Navbar';
@@ -24,6 +27,12 @@ import Alert from './components/layouts/Alert';
 
 // Import our Login component
 import Login from './components/auth/Login';
+
+// Import our Dashboard component
+import Dashboard from './components/dashboard/Dashboard';
+
+// Import our PrivateRouting component
+import PrivateRouting from './components/routing/PrivateRouting';
 
 // Import our setAuthToken utils
 import setAuthToken from './utils/setAuthToken';
@@ -62,6 +71,7 @@ const App = () => {
             <Switch>
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
+              <PrivateRouting exact path='/dashboard' component={Dashboard} />
             </Switch>
           </section>
         </Fragment>
