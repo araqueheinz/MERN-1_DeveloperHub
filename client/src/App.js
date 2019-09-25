@@ -5,7 +5,7 @@ import React, { Fragment } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 // Import useEffect from React library HOOKS!
-import {  useEffect } from 'react';
+import { useEffect } from 'react';
 
 // Import our css styles to our app
 import './App.css';
