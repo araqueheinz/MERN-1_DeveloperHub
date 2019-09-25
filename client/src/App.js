@@ -10,6 +10,9 @@ import { useEffect } from 'react';
 // Import our css styles to our app
 import './App.css';
 
+// Import our media queries css styles to our app
+import './Queries.css';
+
 // Import our Navbar component
 import Navbar from './components/layouts/Navbar';
 

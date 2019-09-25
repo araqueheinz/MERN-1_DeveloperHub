@@ -1,5 +1,5 @@
 // Import our action types
-import { GET_PROFILE, PROFILE_ERROR } from '../actions/types';
+import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE } from '../actions/types';
 
 // Using a Switch Statement Most common practice
 export default (state = {
@@ -27,6 +27,13 @@ export default (state = {
         loading: false
       };
     
+    case CLEAR_PROFILE:
+      return {
+        ...state,
+        profile: null,
+        repos: [],
+        loading: false,
+      }
     default:
       return state;
   }
