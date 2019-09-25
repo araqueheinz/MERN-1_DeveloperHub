@@ -11,11 +11,13 @@
 */
 
 :root {
-  --primary-color: #4897D8;
+  --primary-color: #5e80d5;
   --dark-color: #343a40;
   --light-color: #f4f4f4;
   --danger-color: #F62A00;
   --success-color: #C7DB00;
+  --orange-color:  #EB5E30;
+  --yellow-color: #FBCB7B;
 }
 
 /*  ///////////////////////////////////////////////
@@ -103,6 +105,22 @@ ul {
 .badge-dark,
 .alert-dark {
   background: var(--dark-color);
+  color: #fff;
+}
+
+.btn-orange,
+.bg-orange,
+.badge-orange,
+.alert-orange {
+  background: var(--orange-color);
+  color: #fff;
+}
+
+.btn-yellow,
+.bg-yellow,
+.badge-yellow,
+.alert-yellow {
+  background: var(--yellow-color);
   color: #fff;
 }
 
@@ -229,7 +247,6 @@ button {
   z-index: 1;
   width: 100%;
   top: 0;
-  border-bottom: solid 1px var(--primary-color);
   opacity: 0.9;
 }
 
@@ -238,7 +255,7 @@ button {
 }
 
 .navbar a {
-  color: #fff;
+  color: #333;
   padding: 0.45rem;
   margin: 0 0.25rem;
 }
