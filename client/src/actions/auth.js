@@ -41,7 +41,7 @@ export const register = ({ name, email, password }) => async dispatch => {
 
   try {
     // Save to the database
-    const res = await axios.post('/api/users', body, { headers: { 'Content-type': 'application/json' }});
+    const res = await axios.post('/api/users', body, { headers: { 'Content-type': 'application/json' } });
     
     dispatch({
       type: REGISTER_SUCCESS,

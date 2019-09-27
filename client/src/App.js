@@ -13,6 +13,10 @@ import './App.css';
 // Import our media queries css styles to our app
 import './Queries.css';
 
+/*  ///////////////////////////////////////////////
+   //              * COMPONENTS *               //
+  /////////////////////////////////////////////// */
+
 // Import our Navbar component
 import Navbar from './components/layouts/Navbar';
 
@@ -33,6 +37,16 @@ import Dashboard from './components/dashboard/Dashboard';
 
 // Import our PrivateRouting component
 import PrivateRouting from './components/routing/PrivateRouting';
+
+// Import our CreateProfile component
+import CreateProfile from './components/profile-forms/CreateProfile';
+
+// Import our EditProfile component
+import EditProfile from './components/profile-forms/EditProfile';
+
+/*  ///////////////////////////////////////////////
+   //              * COMPONENTS *               //
+  /////////////////////////////////////////////// */
 
 // Import our setAuthToken utils
 import setAuthToken from './utils/setAuthToken';
@@ -72,6 +86,8 @@ const App = () => {
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
               <PrivateRouting exact path='/dashboard' component={Dashboard} />
+              <PrivateRouting exact path='/create-profile' component={CreateProfile} />
+              <PrivateRouting exact path='/edit-profile' component={EditProfile} />
             </Switch>
           </section>
         </Fragment>
