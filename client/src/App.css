@@ -124,7 +124,13 @@ ul {
   color: #fff;
 }
 
-
+.btn-success,
+.bg-success,
+.badge-success,
+.alert-success {
+  background: var(--success-color);
+  color: #fff;
+}
 
 /*  ///////////////////////////////////////////////
    //          * REUSABLE CONTROLS *            //
