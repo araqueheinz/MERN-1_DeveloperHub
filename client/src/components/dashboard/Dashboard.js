@@ -19,6 +19,9 @@ import { Link } from 'react-router-dom';
 // Import our getCurrentProfile action
 import { getCurrentProfile } from '../../actions/profile';
 
+// Import oud DashboardAction component
+import DashboardActions from './DashboardActions';
+
 const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, loading } }) => {
 
   useEffect(() => {
@@ -27,11 +30,17 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
 
   return loading && profile === null ?  <Spinner /> : <Fragment>
     <h1 className='large text-primary'>Dashboard</h1>
+
     <p className='lead'>
                      {/* If user exists then show user.name */}
       <i className='fas fa-user' /> Bienvenido {user && user.name}
     </p>
-    { profile !== null ? <Fragment>has</Fragment> : <Fragment>
+
+    { profile !== null ? <Fragment>
+
+      <DashboardActions />
+      
+    </Fragment> : <Fragment>
         <p>You haven't created a profile, an account yes, a profile no, please add info</p>
         <Link to='/create-profile' className="btn btn-primary my-1">
           Create Profile

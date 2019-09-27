@@ -124,7 +124,13 @@ ul {
   color: #fff;
 }
 
-
+.btn-success,
+.bg-success,
+.badge-success,
+.alert-success {
+  background: var(--success-color);
+  color: #fff;
+}
 
 /*  ///////////////////////////////////////////////
    //          * REUSABLE CONTROLS *            //
@@ -174,6 +180,14 @@ ul {
 
 .my-1 {
   margin: 1rem 0;
+}
+
+.my-2 {
+  margin: 2rem 0;
+}
+
+.my-3 {
+  margin: 3rem 0;
 }
 
 /*  ///////////////////////////////////////////////
