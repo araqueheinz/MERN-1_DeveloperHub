@@ -19,8 +19,15 @@ import { Link } from 'react-router-dom';
 // Import our getCurrentProfile action
 import { getCurrentProfile } from '../../actions/profile';
 
-// Import oud DashboardAction component
+// Import our DashboardAction component
 import DashboardActions from './DashboardActions';
+
+// Import our Experience component
+import Experience from './Experience';
+
+
+// Import our Education component
+import Education from './Education';
 
 const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, loading } }) => {
 
@@ -39,6 +46,8 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
     { profile !== null ? <Fragment>
 
       <DashboardActions />
+      <Experience experience={profile.experience}/>
+      <Education education={profile.education}/>
       
     </Fragment> : <Fragment>
         <p>You haven't created a profile, an account yes, a profile no, please add info</p>
