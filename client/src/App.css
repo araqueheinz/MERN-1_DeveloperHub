@@ -247,6 +247,19 @@ button {
   color: #0077b5;
 }
 
+/*  ///////////////////////////////////////////////
+   //          * TABLE CONTROLS *               //
+  /////////////////////////////////////////////// */
+
+.table th,
+.table td {
+  padding: 1rem;
+  text-align: left;
+}
+
+.table th {
+  background: var(--light-color);
+}
 
 /*  ///////////////////////////////////////////////
    //    * NAVBAR COMPONENTS CONTROLS *         //

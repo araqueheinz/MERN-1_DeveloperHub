@@ -62,7 +62,7 @@ export const register = ({ name, email, password }) => async dispatch => {
   }
 }
 
-// LOGIN USER USER
+// LOGIN USER
 export const login = (email, password) => async dispatch => {
   const body = {
     email,
@@ -71,7 +71,7 @@ export const login = (email, password) => async dispatch => {
 
   try {
     // Save to the database
-    const res = await axios.post('/api/auth', body, { headers: { 'Content-type': 'application/json' }});
+    const res = await axios.post('/api/auth', body, { headers: { 'Content-type': 'application/json' } });
     
     dispatch({
       type: LOGIN_SUCCESS,

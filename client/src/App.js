@@ -44,6 +44,12 @@ import CreateProfile from './components/profile-forms/CreateProfile';
 // Import our EditProfile component
 import EditProfile from './components/profile-forms/EditProfile';
 
+// Import our AddExperience component
+import AddExperience from './components/profile-forms/AddExperience';
+
+// Import our AddEducation component
+import AddEducation from './components/profile-forms/AddEducation';
+
 /*  ///////////////////////////////////////////////
    //              * COMPONENTS *               //
   /////////////////////////////////////////////// */
@@ -88,6 +94,8 @@ const App = () => {
               <PrivateRouting exact path='/dashboard' component={Dashboard} />
               <PrivateRouting exact path='/create-profile' component={CreateProfile} />
               <PrivateRouting exact path='/edit-profile' component={EditProfile} />
+              <PrivateRouting exact path='/add-experience' component={AddExperience} />
+              <PrivateRouting exact path='/add-education' component={AddEducation} />
             </Switch>
           </section>
         </Fragment>

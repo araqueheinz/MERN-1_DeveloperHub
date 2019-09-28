@@ -61,7 +61,7 @@ const CreateProfile = ({ createProfile, history }) => {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    createProfile(formData, history)
+    createProfile(formData, history);
   }
 
   return (
