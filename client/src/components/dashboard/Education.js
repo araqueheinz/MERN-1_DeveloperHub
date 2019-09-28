@@ -13,7 +13,10 @@ import moment from 'moment';
 // Import the React Moment library
 import Moment from 'react-moment';
 
-const Education = ({ education }) => {
+// Import our deleteEducation action creator
+import { deleteEducation } from '../../actions/profile';
+
+const Education = ({ education, deleteEducation }) => {
 
   const educations = education.map(element => (
     <tr key={element._id}>
@@ -27,7 +30,7 @@ const Education = ({ education }) => {
       </td>
 
       <td>
-        <button className="btn btn-danger"> Delete </button>
+        <button onClick={() => { deleteEducation(element._id) }} className="btn btn-danger"> Delete </button>
       </td>
 
     </tr>
@@ -54,6 +57,9 @@ const Education = ({ education }) => {
 
 Education.propTypes = {
   education: PropTypes.array.isRequired,
+  deleteEducation: PropTypes.func.isRequired,
 };
 
-export default connect()(Education);
+export default connect(null,{
+  deleteEducation: deleteEducation,
+})(Education);

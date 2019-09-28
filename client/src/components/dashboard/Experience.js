@@ -13,7 +13,10 @@ import moment from 'moment';
 // Import the React Moment library
 import Moment from 'react-moment';
 
-const Experience = ({ experience }) => {
+// Import our deleteExperience action creator
+import { deleteExperience } from '../../actions/profile';
+
+const Experience = ({ experience, deleteExperience }) => {
 
   const experiences = experience.map(element => (
     <tr key={element._id}>
@@ -27,7 +30,7 @@ const Experience = ({ experience }) => {
       </td>
 
       <td>
-        <button className="btn btn-danger"> Delete </button>
+        <button onClick={() => deleteExperience(element._id)} className="btn btn-danger"> Delete </button>
       </td>
 
     </tr>
@@ -54,6 +57,9 @@ const Experience = ({ experience }) => {
 
 Experience.propTypes = {
   experience: PropTypes.array.isRequired,
+  deleteExperience: PropTypes.func.isRequired,
 };
 
-export default connect()(Experience);
+export default connect(null, {
+  deleteExperience: deleteExperience,
+})(Experience);
