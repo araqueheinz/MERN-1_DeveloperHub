@@ -26,6 +26,9 @@ const Profile = require('../../models/Profile');
 // Require our User model
 const User = require('../../models/User');
 
+// Require our Post model
+const Post = require('../../models/Post');
+
 
 /* =================================
           CREATE C/R/U/D
