@@ -1,5 +1,5 @@
 // Import our action types
-import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE } from '../actions/types';
+import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE, CLEAR_PROFILE } from '../actions/types';
 
 // Using a Switch Statement Most common practice
 export default (state = {
@@ -14,12 +14,13 @@ export default (state = {
 
   switch (type) {
     case GET_PROFILE:
+    case UPDATE_PROFILE:
       return {
         ...state,
         profile: payload,
         loading: false
       };
-
+    
     case PROFILE_ERROR:
       return {
         ...state,

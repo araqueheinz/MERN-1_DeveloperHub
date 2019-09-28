@@ -33,7 +33,7 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
 
     <p className='lead'>
                      {/* If user exists then show user.name */}
-      <i className='fas fa-user' /> Bienvenido {user && user.name}
+      <i className='fas fa-user' /> Bienvenid@ {user && user.name}
     </p>
 
     { profile !== null ? <Fragment>
