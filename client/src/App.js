@@ -50,6 +50,9 @@ import AddExperience from './components/profile-forms/AddExperience';
 // Import our AddEducation component
 import AddEducation from './components/profile-forms/AddEducation';
 
+// Import our Profiles component
+import Profiles from './components/profiles/Profiles';
+
 /*  ///////////////////////////////////////////////
    //              * COMPONENTS *               //
   /////////////////////////////////////////////// */
@@ -91,6 +94,7 @@ const App = () => {
             <Switch>
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
+              <Route exact path='/profiles' component={Profiles} />
               <PrivateRouting exact path='/dashboard' component={Dashboard} />
               <PrivateRouting exact path='/create-profile' component={CreateProfile} />
               <PrivateRouting exact path='/edit-profile' component={EditProfile} />
