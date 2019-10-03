@@ -19,6 +19,12 @@ import { useEffect } from 'react';
 // Import our getProfileById action creator
 import { getProfileById } from '../../actions/profile';
 
+// Import our ProfileTop component
+import ProfileTop from './ProfileTop';
+
+// Import our ProfileAbout component
+import ProfileAbout from './ProfileAbout';
+
 
 const Profile = ({ profile: { profile, loading }, auth, match, getProfileById }) => {
   useEffect(() => {
@@ -41,6 +47,10 @@ const Profile = ({ profile: { profile, loading }, auth, match, getProfileById })
               Edit Profile
             </Link>
           )}
+          <div className='profile-grid my-1'>
+            <ProfileTop profile={profile} />
+            <ProfileAbout profile={profile} />
+          </div>
         </Fragment>
       )}
     </Fragment>
