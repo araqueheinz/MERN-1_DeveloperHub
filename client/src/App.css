@@ -132,6 +132,15 @@ ul {
   color: #fff;
 }
 
+.btn-white,
+.bg-white,
+.badge-white,
+.alert-white {
+  background: #fff;
+  color: #333;
+  border: #ccc solid 1px;
+}
+
 /*  ///////////////////////////////////////////////
    //          * REUSABLE CONTROLS *            //
   /////////////////////////////////////////////// */
