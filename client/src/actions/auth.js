@@ -10,6 +10,9 @@ import { REGISTER_SUCCESS, REGISTER_FAIL, USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS
 // Import our setAuthToken utils
 import setAuthToken from '../utils/setAuthToken';
 
+// Import our own history browser object to make programmatic navigation
+import history from '../utils/history';
+
 // LOAD USER
 export const loadUser = () => async dispatch => {
   if (localStorage.token) {
@@ -93,7 +96,8 @@ export const login = (email, password) => async dispatch => {
 }
 
 // LOGOUT USER
-export const logout = () => dispatch => {
+export const logout = () => (dispatch) => {
   dispatch({ type: CLEAR_PROFILE });
   dispatch({ type: LOGOUT });
+  history.push('/');
 };

@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import Spinner from '../layouts/Spinner';
 
 // Import PropTypes from prop-types library
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 // Import the link component from the react-router-dom
 import { Link } from 'react-router-dom';
