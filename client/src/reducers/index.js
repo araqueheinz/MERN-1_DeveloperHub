@@ -10,8 +10,12 @@ import auth from './auth';
 // Import our profile action creator
 import profile from './profile';
 
+// Import our post action creator
+import post from './post';
+
 export default combineReducers({
   alert,
   auth,
   profile,
+  post,
 });

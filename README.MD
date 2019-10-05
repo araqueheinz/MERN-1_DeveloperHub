@@ -11,8 +11,15 @@ other developers, using **NODE.JS.js** & **EXPRESS** for the Back-end, **REACT**
 - [X] Validation (Bcyrpt Password/Hashing)
 - [X] Protect Routes with middleware and JWT.
 - [X] C.R.U.D (API).
-- [ ] Create React App an integrated with back-end (API).
-- [ ] Create store with Redux.
+### React
+- [X] Create React App an integrated with back-end (API).
+- [X] Create store with Redux.
+- [X] Ability to create an account
+- [X] Create Login / Logout
+- [X] C.R.U.D Profile/Experience/Education
+- [X] Display Developers profiles
+- [X] Display Git Repos
+- [X] Posts And Comments
 
 ## **NodeJS Back-End**
 
