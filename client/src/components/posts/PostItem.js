@@ -36,7 +36,6 @@ const PostItem = ({ auth, post: {  _id  , text, name, avatar, user, likes, comme
       <div>
         <p className='my-1'>{text}</p>
         <p className='post-date'> Posted on <Moment format='YYYY/MM/DD'>{date}</Moment> </p>
-      </div>
 
       {/* LIKE BUTTON */}
       <button type='button' className='btn btn-light' onClick={(event) => { addLike(_id) }}>
@@ -59,6 +58,7 @@ const PostItem = ({ auth, post: {  _id  , text, name, avatar, user, likes, comme
           <i className='fas fa-times' />
         </button>
       )}
+     </div>
   </div>
   )
 }
