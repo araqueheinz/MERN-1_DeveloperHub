@@ -56,6 +56,12 @@ import Profiles from './components/profiles/Profiles';
 // Import our Profile component
 import Profile from './components/profile/Profile';
 
+// Import our Posts component
+import Posts from './components/posts/Posts';
+
+// Import our Post component
+import Post from './components/post/Post';
+
 /*  ///////////////////////////////////////////////
    //              * COMPONENTS *               //
   /////////////////////////////////////////////// */
@@ -104,6 +110,8 @@ const App = () => {
               <PrivateRouting exact path='/edit-profile' component={EditProfile} />
               <PrivateRouting exact path='/add-experience' component={AddExperience} />
               <PrivateRouting exact path='/add-education' component={AddEducation} />
+              <PrivateRouting exact path='/posts' component={Posts} />
+              <PrivateRouting exact path='/post/:id' component={Post} />
             </Switch>
           </section>
         </Fragment>
