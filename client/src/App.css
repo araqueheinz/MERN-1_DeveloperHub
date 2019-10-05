@@ -11,11 +11,13 @@
 */
 
 :root {
-  --primary-color: #4897D8;
+  --primary-color: #5e80d5;
   --dark-color: #343a40;
   --light-color: #f4f4f4;
   --danger-color: #F62A00;
   --success-color: #C7DB00;
+  --orange-color:  #EB5E30;
+  --yellow-color: #FBCB7B;
 }
 
 /*  ///////////////////////////////////////////////
@@ -106,7 +108,38 @@ ul {
   color: #fff;
 }
 
+.btn-orange,
+.bg-orange,
+.badge-orange,
+.alert-orange {
+  background: var(--orange-color);
+  color: #fff;
+}
 
+.btn-yellow,
+.bg-yellow,
+.badge-yellow,
+.alert-yellow {
+  background: var(--yellow-color);
+  color: #fff;
+}
+
+.btn-success,
+.bg-success,
+.badge-success,
+.alert-success {
+  background: var(--success-color);
+  color: #fff;
+}
+
+.btn-white,
+.bg-white,
+.badge-white,
+.alert-white {
+  background: #fff;
+  color: #333;
+  border: #ccc solid 1px;
+}
 
 /*  ///////////////////////////////////////////////
    //          * REUSABLE CONTROLS *            //
@@ -128,6 +161,10 @@ ul {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.round-img {
+  border-radius: 50%;
 }
 
 /* //////// TEXT //////// */
@@ -156,6 +193,26 @@ ul {
 
 .my-1 {
   margin: 1rem 0;
+}
+
+.my-2 {
+  margin: 2rem 0;
+}
+
+.my-3 {
+  margin: 3rem 0;
+}
+
+/* //////// PADDINGS //////// */
+
+.p-1 {
+  padding: 1rem;
+}
+.p-2 {
+  padding: 2rem;
+}
+.p-3 {
+  padding: 3rem;
 }
 
 /*  ///////////////////////////////////////////////
@@ -215,6 +272,19 @@ button {
   color: #0077b5;
 }
 
+/*  ///////////////////////////////////////////////
+   //          * TABLE CONTROLS *               //
+  /////////////////////////////////////////////// */
+
+.table th,
+.table td {
+  padding: 1rem;
+  text-align: left;
+}
+
+.table th {
+  background: var(--light-color);
+}
 
 /*  ///////////////////////////////////////////////
    //    * NAVBAR COMPONENTS CONTROLS *         //
@@ -229,7 +299,6 @@ button {
   z-index: 1;
   width: 100%;
   top: 0;
-  border-bottom: solid 1px var(--primary-color);
   opacity: 0.9;
 }
 
@@ -238,7 +307,7 @@ button {
 }
 
 .navbar a {
-  color: #fff;
+  color: #333;
   padding: 0.45rem;
   margin: 0 0.25rem;
 }
@@ -272,3 +341,148 @@ button {
   justify-content: center;
   text-align: center;
 }
+
+/*  ///////////////////////////////////////////////
+   //   * PROFILE COMPONENTS CONTROLS *         //
+  /////////////////////////////////////////////// */
+
+.profile {
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr;
+  align-items: center;
+  grid-gap: 2rem;
+  padding: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* Profile Page */
+.profile-grid {
+  display: grid;
+  grid-template-areas:
+    'top top'
+    'about about'
+    'exp edu'
+    'github github';
+  grid-gap: 1rem;
+}
+
+.profile-top {
+  grid-area: top;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.profile-top img {
+  width: 250px;
+}
+
+.profile-top .icons a {
+  color: #fff;
+  margin: 0 0.3rem;
+}
+
+.profile-top .icons a:hover {
+  color: var(--dark-color);
+}
+
+.profile-about {
+  grid-area: about;
+  text-align: center;
+}
+
+.profile-about .skills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.profile-exp {
+  grid-area: exp;
+}
+
+.profile-edu {
+  grid-area: edu;
+}
+
+.profile-exp h2,
+.profile-edu h2 {
+  margin-bottom: 1rem;
+}
+
+.profile-exp > div,
+.profile-edu > div {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: #ccc 1px dotted;
+}
+
+.profile-exp > div:last-child,
+.profile-edu > div:last-child {
+  border: 0;
+}
+
+.profile-exp p,
+.profile-edu p {
+  margin: 0.5rem 0;
+}
+
+.profile-github {
+  grid-area: github;
+}
+
+.profile-github .repo {
+  display: flex;
+}
+
+.profile-github .repo > div:first-child {
+  flex: 7;
+  flex-basis: 70%;
+}
+
+.profile-github > div:last-child {
+  flex: 3;
+  flex-basis: 20%;
+}
+
+/*  ///////////////////////////////////////////////
+   //     * POST COMPONENTS CONTROLS *          //
+  /////////////////////////////////////////////// */
+
+  .post-form .post-form-header {
+    background: var(--primary-color);
+    padding: 0.5rem;
+  }
+  
+  .post {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-gap: 2rem;
+    align-items: center;
+  }
+  
+  .post > div:first-child {
+    text-align: center;
+  }
+  
+  .post img {
+    width: 100px;
+  }
+  
+  .post .comment-count {
+    background: var(--light-color);
+    color: var(--primary-color);
+    padding: 0.1rem 0.2rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+  }
+  
+  .post .post-date {
+    color: #aaa;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }

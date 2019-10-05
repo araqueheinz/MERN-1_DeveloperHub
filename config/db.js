@@ -4,8 +4,18 @@ const mongoose = require('mongoose');
 // Require the config library
 const config = require('config');
 
-// We are going to get the mongo URI from the default.json file
-const db = config.get('mongoURI');
+// check if we are in development or production
+const env = process.env.NODE_ENV || 'development';
+
+// If we are in development using local database,
+// Else We are going to get the mongo URI from the default.json file
+let db;
+
+if (env === 'development') {
+  db = 'mongodb://localhost:27017/developerHub';
+} else {
+  db = config.get('mongoURI');
+}
 
 // To connect to the database
 const connectDB = async () => {

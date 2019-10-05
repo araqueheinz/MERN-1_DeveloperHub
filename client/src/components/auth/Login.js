@@ -4,16 +4,26 @@ import React, { Fragment } from 'react';
 // Import HOOKS functions from react library
 import { useState } from 'react';
 
-// Import the link component from the react-router-dom
-import { Link } from 'react-router-dom';
+// Import the link and redirect component from the react-router-dom
+import { Link, Redirect } from 'react-router-dom';
 
-const Login = () => {
+// Import the connect function from react-redux library
+import { connect } from 'react-redux';
+
+// Import PropTypes from prop-types library
+import PropTypes from 'prop-types'
+
+// Import our login action
+import { login } from '../../actions/auth'
+
+const Login = ({ login, isAuthenticated }) => {
+  // HOOKS
   const[formData, setFormData] = useState({
     email: '',
     password: '',
   });
 
-  const { name, email, password, password2 } = formData;
+  const { email, password } = formData;
 
   const onChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -21,9 +31,14 @@ const Login = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    console.log('Login, Success');
-    
+    login(email, password);
+  };
+
+  // Redirect if logged in
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />
   }
+
 
   return (
     <Fragment>
@@ -40,7 +55,7 @@ const Login = () => {
           <input type="password" placeholder="Password" name="password" minLength="6" value={password} onChange={(event) => { onChange(event) }} required />
         </div>
         
-        <input type="submit" className="btn btn-primary" value="Register" />
+        <input type="submit" className="btn btn-primary" value="Login" />
       </form>
 
       <p className="my-1">
@@ -50,4 +65,16 @@ const Login = () => {
   )
 }
 
-export default Login;
+
+Login.propTypes = {
+ login: PropTypes.func.isRequired,
+ isAuthenticated: PropTypes.bool,
+}
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, {
+  login: login,
+})(Login);

@@ -5,8 +5,12 @@ SERVER.JS FILE
 // Require express library
 const express = require('express');
 
+// Require the path module which is a core nodejs module to manipulate file paths
+const path = require('path');
+
 // Require our config/db.js file for database connection
 const connectDB = require('./config/db');
+
 
 const app = express();
 
@@ -18,9 +22,6 @@ app.use(express.json({
   extended: false,
 }));
 
-app.get('/', (req, res) => {
-  res.send('Api Running');
-});
 
 // Define and require my AUTH route.
 app.use('/api/auth', require('./routes/api/auth'));
@@ -30,6 +31,18 @@ app.use('/api/posts', require('./routes/api/posts'));
 app.use('/api/profile', require('./routes/api/profile'));
 // Define and require my USERS route.
 app.use('/api/users', require('./routes/api/users'));
+
+
+// HEROKU CONFIGURATION FOR DEPLOYMENT.
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 const PORT = process.env.PORT || 4000;
 
