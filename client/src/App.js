@@ -59,6 +59,9 @@ import Profile from './components/profile/Profile';
 // Import our Posts component
 import Posts from './components/posts/Posts';
 
+// Import our Post component
+import Post from './components/post/Post';
+
 /*  ///////////////////////////////////////////////
    //              * COMPONENTS *               //
   /////////////////////////////////////////////// */
@@ -108,6 +111,7 @@ const App = () => {
               <PrivateRouting exact path='/add-experience' component={AddExperience} />
               <PrivateRouting exact path='/add-education' component={AddEducation} />
               <PrivateRouting exact path='/posts' component={Posts} />
+              <PrivateRouting exact path='/post/:id' component={Post} />
             </Switch>
           </section>
         </Fragment>

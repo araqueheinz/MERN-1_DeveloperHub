@@ -1,4 +1,4 @@
-import { GET_POSTS, POST_ERROR, UPDATE_LIKES, ADD_POST, DELETE_POST } from '../actions/types';
+import { GET_POSTS, GET_POST, POST_ERROR, UPDATE_LIKES, ADD_POST, ADD_COMMENT, DELETE_POST, REMOVE_COMMENT, } from '../actions/types';
 
 
 export default function( state = {
@@ -10,7 +10,7 @@ export default function( state = {
   const { type, payload } = action;
   switch (type) {
 
-    // CREATE
+    // CREATE POST
     case ADD_POST:
       return {
         ...state,
@@ -18,7 +18,15 @@ export default function( state = {
         loading: false,
       };
     
-    // READ
+    // READ ONE POST
+    case GET_POST:
+      return {
+        ...state,
+        post: payload,
+        loading: false
+      };
+
+    // READ ALL POSTS
     case GET_POSTS:
       return {
         ...state,
@@ -26,13 +34,34 @@ export default function( state = {
         loading: false,
       };
     
-    // DELETE
+    // DELETE POST
     case DELETE_POST: 
     return {
       ...state,
       posts: state.posts.filter(post => post._id !== payload),
       loading: false,
     }
+
+    // CREATE COMMENT
+    case ADD_COMMENT:
+      return {
+        ...state,
+        post: { ...state.post, comments: payload },
+        loading: false
+      }
+    
+    // DELETE COMMENT
+    case REMOVE_COMMENT:
+      return {
+        ...state,
+        post: {
+          ...state.post,
+          comments: state.post.comments.filter(
+            comment => comment._id !== payload
+          )
+        },
+        loading: false
+      }
 
     case POST_ERROR:
       return {
